@@ -286,7 +286,7 @@ if __name__ == '__main__':
             word2 = input("请输入第二个单词: ")
             calcShortestPath(G, word1, word2, True)
         elif user_input == '5':
-            randomWalk(G)
+            randomWalk(G) # 随机遍历
         elif user_input.lower() == 'q':
             break  # 退出程序
         else:

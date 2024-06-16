@@ -204,7 +204,7 @@ def randomWalk(G):
     node, matrix = G
     visted = matrix.copy()  # 防止matrix数组被修改
     start = node.index(np.random.choice(node))  # 出发点
-    visitpath = [start] # 记录随机遍历过程
+    visitpath = [start]  # 记录随机遍历过程
     str = ''
 
     while True:
@@ -213,7 +213,7 @@ def randomWalk(G):
         for i in range(0, len(matrix)):
             if matrix[start][i] > 0:
                 next.append(i)
-        if not next: #无出边
+        if not next:  # 无出边
             for idx in visitpath:
                 str = str + node[idx] + ' '
             with open('outtest.txt', 'w') as fout:
@@ -223,7 +223,7 @@ def randomWalk(G):
         nextnode = np.random.choice(next)
         visitpath.append(nextnode)
         # 记录每条边被访问次数, 小于零说明访问两次
-        visted[start][nextnode]=visted[start][nextnode]-1
+        visted[start][nextnode] = visted[start][nextnode] - 1
         if visted[start][nextnode] == -1:
             for idx in visitpath:
                 str = str + node[idx] + ' '
@@ -232,8 +232,6 @@ def randomWalk(G):
             print(str)
             break
         start = nextnode
-
-
 
 
 if __name__ == '__main__':
@@ -286,7 +284,7 @@ if __name__ == '__main__':
             word2 = input("请输入第二个单词: ")
             calcShortestPath(G, word1, word2, True)
         elif user_input == '5':
-            randomWalk(G)  # 随机遍历
+            randomWalk(G)
         elif user_input.lower() == 'q':
             break  # 退出程序
         else:
